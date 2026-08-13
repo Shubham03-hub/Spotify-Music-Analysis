@@ -106,7 +106,12 @@ python -m src.training.mlflow_tracking
 ### 6. Run the Dashboard
 
 ```bash
-streamlit run dashboard/app.py
+streamlit run dashboard/app.
+
+## 📊 Dashboard Preview
+
+![KPI Summary](assets/kpi_summary.png)
+![Popularity Score Distribution](assets/popularity.png)
 ```
 
 Streamlit will start a local server and open the dashboard automatically at:
