@@ -1,0 +1,131 @@
+artist_id,artist_name,primary_genre,country,career_stage,followers_millions,artist_star_power,debut_year
+ART0001,Remy Voss,lofi,SE,Established,5.51,75.7,2009
+ART0002,Rivers,rnb,ES,Rising,0.53,26.5,2023
+ART0003,The Blazes,kpop,IN,Veteran,3.34,40.7,2020
+ART0004,Milo Frost,hip_hop,BR,Rising,3.85,51.6,2015
+ART0005,Yara Marin,metal,CO,Established,14.55,66.3,2012
+ART0006,Yara Nova,afrobeats,JM,Rising,0.78,16.9,2008
+ART0007,Lena Vega,metal,FR,Established,3.02,57.7,2014
+ART0008,Skye Vale,latin,CO,Established,14.98,72.2,2021
+ART0009,Milo Marin,country,CA,Established,7.76,48.9,2020
+ART0010,Finn Blaze,rock,MX,Rising,11.64,57.8,2015
+ART0011,Ines Anders,hyperpop,JM,Rising,3.24,42.0,2009
+ART0012,Cole Nova,hyperpop,FR,Established,9.43,63.4,2019
+ART0013,Dax Cruz,hip_hop,GB,Established,18.68,79.4,2015
+ART0014,Amara Storm,rnb,ES,Established,2.95,59.5,2013
+ART0015,Nova,hip_hop,NL,Established,11.45,59.3,2014
+ART0016,Mira Vega,afrobeats,JM,Established,11.82,74.0,2016
+ART0017,The Anderss,pop,JM,Established,9.76,58.4,2022
+ART0018,Noor Blaze,edm,MX,Established,6.11,58.1,2021
+ART0019,Cole Rivers,hip_hop,JM,Established,6.23,51.7,2014
+ART0020,Ava Delacroix,rock,NL,Established,6.03,61.8,2010
+ART0021,Leo Sol,latin,JP,Veteran,14.73,64.7,2010
+ART0022,Noor Cruz,classical,BR,Rising,0.45,24.1,2021
+ART0023,Kaia Cruz,latin,CO,Established,6.19,54.9,2020
+ART0024,The Storms,metal,JM,Established,13.66,69.3,2019
+ART0025,Kai Sol,rnb,GB,Established,4.47,56.2,2011
+ART0026,The Wildes,indie,KR,Rising,4.17,42.0,2008
+ART0027,Yara Lark,hip_hop,IT,Rising,1.83,27.0,2012
+ART0028,Frost,country,CO,Rising,1.23,21.2,2017
+ART0029,Zoe Voss,rock,NL,Established,5.22,50.3,2006
+ART0030,Skye Sterling,afrobeats,IN,Established,3.34,47.6,2023
+ART0031,The Okafors,latin,US,Rising,0.89,26.5,2019
+ART0032,Lena Vale,metal,DE,Rising,2.06,43.0,2022
+ART0033,The Larks,latin,ES,Established,6.97,70.9,2006
+ART0034,Bo Vega,lofi,ES,Veteran,1.63,24.1,2023
+ART0035,Theo Storm,edm,NL,Established,9.58,73.7,2012
+ART0036,The Frosts,rnb,GB,Rising,6.2,47.3,2011
+ART0037,The Riverss,rnb,GB,Rising,1.06,28.4,2013
+ART0038,Nia Delacroix,classical,GB,Established,5.28,60.7,2007
+ART0039,Mira Frost,pop,JM,Established,8.6,56.3,2013
+ART0040,Talia Sol,hip_hop,FR,Veteran,4.76,40.3,2006
+ART0041,Cruz,afrobeats,BR,Established,11.77,60.5,2022
+ART0042,Rune Voss,kpop,KR,Established,17.7,78.3,2012
+ART0043,The Kanes,hip_hop,US,Veteran,12.91,76.9,2006
+ART0044,Rune Anders,jazz,NG,Established,5.59,60.8,2008
+ART0045,Reyes,country,GB,Established,12.83,72.2,2015
+ART0046,Cole Vale,rnb,IN,Rising,0.33,21.2,2016
+ART0047,Delacroix,hyperpop,IN,Veteran,2.74,54.7,2012
+ART0048,Amara Sterling,latin,AU,Veteran,7.7,91.6,2012
+ART0049,The Sterlings,pop,KR,Rising,2.19,38.1,2016
+ART0050,Milo Sol,rock,AU,Established,14.82,76.6,2014
+ART0051,Sol,afrobeats,KR,Established,6.8,60.0,2012
+ART0052,Zoe Frost,kpop,CA,Rising,6.98,48.6,2022
+ART0053,Ezra Wilde,indie,GB,Rising,1.15,28.2,2018
+ART0054,Yara Kane,afrobeats,DE,Established,4.16,44.4,2019
+ART0055,Vega,rnb,JP,Rising,1.38,23.4,2009
+ART0056,Sami Nova,kpop,BR,Established,12.47,67.9,2014
+ART0057,Aiden Rivers,rnb,KR,Rising,1.6,29.8,2009
+ART0058,Remy Storm,edm,NG,Established,2.92,45.9,2012
+ART0059,Ines Sol,hyperpop,AU,Established,12.32,88.5,2013
+ART0060,Priya Nova,afrobeats,IN,Established,15.14,82.3,2007
+ART0061,Milo Reyes,edm,IT,Established,7.7,66.9,2005
+ART0062,Leo Frost,lofi,IN,Rising,6.31,55.9,2015
+ART0063,Sterling,hyperpop,AU,Established,6.35,47.2,2018
+ART0064,The Novas,classical,JP,Veteran,12.97,82.3,2022
+ART0065,Aiden Delacroix,indie,JP,Rising,3.94,45.9,2018
+ART0066,The Vegas,afrobeats,FR,Rising,3.11,48.4,2009
+ART0067,Milo Monroe,rnb,CO,Rising,2.67,47.1,2009
+ART0068,Zoe Sol,hip_hop,ES,Established,5.0,52.2,2015
+ART0069,Rune Wilde,lofi,BR,Rising,1.19,37.1,2015
+ART0070,Dax Monroe,lofi,US,Rising,1.47,26.5,2023
+ART0071,The Sols,rnb,IT,Rising,2.78,42.2,2022
+ART0072,Remy Reyes,pop,FR,Rising,1.03,35.2,2005
+ART0073,Voss,latin,ES,Established,25.19,82.2,2017
+ART0074,Dax Delacroix,classical,GB,Established,1.71,47.4,2007
+ART0075,Talia Lark,country,NL,Rising,0.75,29.8,2017
+ART0076,Storm,metal,AU,Established,10.72,66.1,2023
+ART0077,Lark,metal,JM,Established,1.6,39.8,2012
+ART0078,Ava Voss,country,CO,Veteran,6.28,45.7,2023
+ART0079,Sana Vega,jazz,BR,Veteran,8.1,63.3,2020
+ART0080,Kai Reyes,afrobeats,IN,Established,8.25,72.0,2022
+ART0081,Ezra Marin,hyperpop,FR,Rising,1.16,25.1,2007
+ART0082,Wren Sol,rnb,CA,Established,12.79,79.7,2020
+ART0083,Priya Delacroix,classical,NL,Established,7.16,51.9,2023
+ART0084,Dax Vega,afrobeats,CO,Established,12.24,67.4,2006
+ART0085,Marin,rock,BR,Rising,3.08,36.1,2022
+ART0086,The Vales,afrobeats,DE,Veteran,8.37,72.0,2020
+ART0087,Amara Marin,rock,CO,Established,15.15,69.4,2018
+ART0088,Kane,rock,DE,Rising,1.28,37.4,2017
+ART0089,Nia Anders,pop,IT,Veteran,1.95,40.2,2016
+ART0090,Aiden Reyes,classical,DE,Veteran,3.03,45.3,2007
+ART0091,Bo Blaze,edm,KR,Veteran,1.22,34.9,2023
+ART0092,Kai Wilde,afrobeats,AU,Established,5.99,61.8,2012
+ART0093,Remy Anders,lofi,SE,Veteran,4.51,50.1,2019
+ART0094,Leo Sterling,rnb,CA,Veteran,0.7,31.4,2010
+ART0095,Blaze,hyperpop,IT,Rising,0.81,20.3,2006
+ART0096,Tobi Nova,kpop,GB,Rising,5.49,49.9,2016
+ART0097,Lena Lark,kpop,JP,Veteran,5.4,44.2,2015
+ART0098,Finn Vega,country,FR,Rising,10.36,59.1,2008
+ART0099,Talia Cruz,jazz,NL,Established,7.81,70.0,2023
+ART0100,Lena Wilde,classical,GB,Rising,1.84,48.7,2023
+ART0101,Anders,hyperpop,DE,Rising,2.61,39.8,2017
+ART0102,Kai Monroe,kpop,JM,Established,4.1,73.0,2012
+ART0103,Finn Anders,hip_hop,IT,Rising,3.97,51.3,2010
+ART0104,Priya Okafor,classical,US,Rising,1.14,24.8,2010
+ART0105,Skye Nova,country,FR,Established,7.01,58.6,2005
+ART0106,Ava Lark,metal,SE,Rising,7.64,49.5,2006
+ART0107,The Marins,hip_hop,CA,Rising,2.49,29.1,2022
+ART0108,The Cruzs,pop,US,Rising,2.81,33.0,2017
+ART0109,Monroe,metal,CO,Rising,2.02,33.7,2013
+ART0110,Vale,edm,IN,Established,14.52,74.6,2021
+ART0111,Jax Frost,afrobeats,CA,Established,4.46,63.6,2010
+ART0112,The Monroes,jazz,CO,Rising,7.68,51.4,2006
+ART0113,Noor Marin,hyperpop,IT,Veteran,10.82,95.4,2014
+ART0114,Okafor,rnb,NL,Rising,1.7,39.5,2014
+ART0115,Cole Reyes,metal,SE,Veteran,10.99,83.4,2022
+ART0116,The Vosss,rock,US,Rising,10.2,60.5,2010
+ART0117,The Delacroixs,jazz,ES,Veteran,3.76,34.6,2011
+ART0118,Jax Storm,metal,ES,Rising,7.44,49.1,2020
+ART0119,Nia Monroe,lofi,MX,Rising,5.54,49.6,2005
+ART0120,Lena Sterling,rnb,AU,Veteran,10.23,76.5,2007
+ART0121,Aiden Vega,pop,ES,Rising,1.16,22.3,2005
+ART0122,Skye Blaze,pop,JM,Rising,2.06,30.0,2016
+ART0123,Ava Cruz,country,US,Rising,11.36,57.7,2019
+ART0124,Kai Cruz,afrobeats,IN,Established,10.52,76.2,2006
+ART0125,The Reyess,kpop,CA,Veteran,5.2,49.2,2016
+ART0126,Theo Kane,indie,AU,Veteran,12.86,79.6,2011
+ART0127,Cole Sol,hip_hop,SE,Rising,1.8,26.0,2013
+ART0128,Wilde,jazz,CA,Rising,2.66,38.1,2017
+ART0129,Mira Marin,metal,IT,Rising,8.99,53.3,2017
+ART0130,Noor Anders,kpop,ES,Established,4.16,67.3,2020

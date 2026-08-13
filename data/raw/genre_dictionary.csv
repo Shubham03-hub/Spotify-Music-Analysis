@@ -1,0 +1,16 @@
+genre_code,genre_name,category,typical_bpm_range,trend_direction_2020_2026,description
+pop,Pop,Mainstream,95-125,rising,Stable chart-topping genre across the whole window.
+hip_hop,Hip-Hop,Mainstream,80-110,declining,"Dominant early, gradually loses share to afrobeats/latin."
+afrobeats,Afrobeats,Rising,100-115,rising,"Fastest-growing genre in the dataset, breaks out from 2022."
+latin,Latin,Rising,90-120,rising,"Steady sustained growth, reggaeton-driven."
+kpop,Kpop,Rising,100-130,rising,"Global expansion mid-window, slight cooling late."
+edm,Edm,Mainstream,120-135,rising,"Resilient festival-driven genre, roughly flat."
+hyperpop,Hyperpop,Niche,130-160,declining,"Sharp 2021-2022 spike, fades quickly after — a genuine boom-bust genre."
+rnb,Rnb,Mainstream,70-100,rising,Slow steady growth throughout.
+rock,Rock,Legacy,110-140,declining,Gradual long-run decline in streaming share.
+indie,Indie,Niche,90-120,rising,Small but slowly growing dedicated audience.
+country,Country,Legacy,80-115,rising,Crossover pop-country boom from 2023 onward.
+metal,Metal,Niche,120-180,declining,"Small, loyal, essentially flat audience."
+jazz,Jazz,Niche,60-140,rising,"Very small streaming footprint, marginal growth."
+classical,Classical,Niche,40-140,rising,"Smallest streaming footprint, focus-playlist driven."
+lofi,Lofi,Niche,60-90,rising,"Study/focus playlist staple, grew during 2020-21 and held."

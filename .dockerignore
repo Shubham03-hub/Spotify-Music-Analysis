@@ -1,0 +1,13 @@
+.git
+.gitignore
+__pycache__/
+*.pyc
+.pytest_cache/
+mlruns/
+data/interim/*.csv
+data/processed/*.csv
+reports/figures/*.png
+reports/logs/*.log
+*.egg-info/
+.venv/
+venv/

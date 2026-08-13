@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  dashboard:
+    build: .
+    container_name: spotify-dashboard
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./mlruns:/app/mlruns
+      - ./reports:/app/reports
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+
+  mlflow-ui:
+    build: .
+    container_name: spotify-mlflow-ui
+    command: ["mlflow", "ui", "--backend-store-uri", "sqlite:///mlruns/mlflow.db", "--host", "0.0.0.0", "--port", "5000"]
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./mlruns:/app/mlruns
+    restart: unless-stopped

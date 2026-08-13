@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Data & artifacts (raw data is committed for reproducibility; generated
+# intermediate/output data is not)
+data/interim/*.csv
+data/processed/*.csv
+!data/raw/.gitkeep
+
+# Models & experiment tracking (regenerate via `python main.py`)
+models/*.joblib
+mlruns/
+reports/figures/*.png
+reports/logs/*.log
+reports/*.csv
+reports/*.txt
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Streamlit
+.streamlit/secrets.toml

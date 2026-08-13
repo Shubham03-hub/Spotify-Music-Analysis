@@ -1,0 +1,138 @@
+# Spotify Track Performance Intelligence System
+# Central configuration — single source of truth for paths, schema, and modeling params.
+
+project:
+  name: "spotify-music-analysis"
+  random_seed: 42
+
+paths:
+  raw_dir: "data/raw"
+  interim_dir: "data/interim"
+  processed_dir: "data/processed"
+  models_dir: "models"
+  reports_dir: "reports"
+  figures_dir: "reports/figures"
+  mlruns_dir: "mlruns"
+
+raw_files:
+  tracks: "tracks_metadata.csv"
+  audio_features: "audio_features.csv"
+  artists: "artist_metadata.csv"
+  genres: "genre_dictionary.csv"
+
+interim_files:
+  merged: "merged_dataset.csv"
+
+processed_files:
+  model_ready: "model_ready_dataset.csv"
+  genre_year_agg: "genre_year_aggregates.csv"
+
+schema:
+  tracks:
+    key: "track_id"
+    foreign_keys:
+      artist_id: "artists.artist_id"
+      genre: "genres.genre_code"
+    required_columns:
+      - track_id
+      - artist_id
+      - track_name
+      - album_name
+      - genre
+      - release_date
+      - release_year
+      - duration_ms
+      - explicit
+      - popularity
+      - popularity_tier
+    nullable_columns:
+      - album_name
+      - duration_ms
+  audio_features:
+    key: "track_id"
+    required_columns:
+      - track_id
+      - danceability
+      - energy
+      - key
+      - loudness
+      - mode
+      - speechiness
+      - acousticness
+      - instrumentalness
+      - liveness
+      - valence
+      - tempo
+      - time_signature
+    nullable_columns:
+      - danceability
+      - energy
+      - loudness
+      - tempo
+      - valence
+      - acousticness
+      - instrumentalness
+      - liveness
+      - speechiness
+  artists:
+    key: "artist_id"
+    required_columns:
+      - artist_id
+      - artist_name
+      - primary_genre
+      - country
+      - career_stage
+      - followers_millions
+      - artist_star_power
+      - debut_year
+  genres:
+    key: "genre_code"
+    required_columns:
+      - genre_code
+      - genre_name
+      - category
+      - typical_bpm_range
+      - trend_direction_2020_2026
+      - description
+
+targets:
+  popularity_score:
+    column: "popularity"
+    type: "regression"
+  success_tier:
+    column: "popularity_tier"
+    type: "classification"
+    classes: ["Flop", "Niche", "Mid", "Hit", "Viral Hit"]
+    # Viral Hit is extremely rare (~0.2% of catalog). Kept as a distinct label for
+    # reporting, but training uses class_weight="balanced" and macro-F1 as the
+    # primary metric rather than accuracy, and results are reported per-class.
+
+audio_feature_columns:
+  - danceability
+  - energy
+  - key
+  - loudness
+  - mode
+  - speechiness
+  - acousticness
+  - instrumentalness
+  - liveness
+  - valence
+  - tempo
+  - time_signature
+
+modeling:
+  test_size: 0.2
+  cv_folds: 5
+  regression_models: ["linear_regression", "random_forest", "xgboost", "lightgbm"]
+  classification_models: ["random_forest", "xgboost", "lightgbm"]
+  # linear regression is not used for the classification task (no direct sklearn
+  # linear classifier equivalent was requested; logistic regression would be the
+  # natural swap-in if a linear classification baseline is wanted later)
+
+mlflow:
+  tracking_uri: "sqlite:///mlruns/mlflow.db"
+  experiment_name: "spotify-track-performance"
+
+dashboard:
+  title: "Spotify Track Performance Intelligence"
