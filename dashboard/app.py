@@ -10,6 +10,7 @@ src.training, never inside the dashboard process.
 Run with: streamlit run dashboard/app.py
 """
 
+import html
 import sys
 from pathlib import Path
 
@@ -33,22 +34,22 @@ st.set_page_config(
 )
 
 # ---------------------------------------------------------------------------
-# Spotify-themed styling
+# Crextio-inspired light styling (cream/gold, soft cards, black pill buttons)
 # ---------------------------------------------------------------------------
 st.markdown("""
 <style>
 
 /* ---------- App background ---------- */
 .stApp {
-    background: linear-gradient(180deg, #121212 0%, #050505 100%);
-    color: #FFFFFF;
+    background: linear-gradient(160deg, #F8F3E7 0%, #FBEECB 55%, #F5E9CE 100%);
+    color: #1A1A1A;
 }
 
 /* ---------- Titles ---------- */
 h1, h2, h3 {
-    color: #FFFFFF !important;
+    color: #1A1A1A !important;
     font-weight: 700 !important;
-    border-left: 4px solid #1DB954;
+    border-left: 4px solid #E8B93A;
     padding-left: 12px;
     margin-bottom: 0.6em !important;
 }
@@ -59,64 +60,68 @@ h1 {
 
 /* ---------- Sidebar ---------- */
 section[data-testid="stSidebar"] {
-    background-color: #000000;
-    border-right: 1px solid #1a1a1a;
+    background-color: #FFFFFF;
+    border-right: 1px solid #ECE3D0;
 }
 
 section[data-testid="stSidebar"] * {
-    color: #B3B3B3 !important;
+    color: #4A4A4A !important;
 }
 
 section[data-testid="stSidebar"] h1,
 section[data-testid="stSidebar"] h2,
 section[data-testid="stSidebar"] h3 {
-    color: #FFFFFF !important;
-    border-left: 3px solid #1DB954;
+    color: #1A1A1A !important;
+    border-left: 3px solid #E8B93A;
 }
 
 /* ---------- Metric / card containers ---------- */
 div[data-testid="stMetric"] {
-    background-color: #181818;
-    border-radius: 12px;
-    padding: 16px 20px;
-    border: 1px solid #282828;
-    transition: background-color 0.2s ease;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    padding: 18px 22px;
+    border: 1px solid #F0E7D2;
+    box-shadow: 0 6px 18px rgba(26, 26, 26, 0.06);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 div[data-testid="stMetric"]:hover {
-    background-color: #202020;
+    box-shadow: 0 10px 26px rgba(26, 26, 26, 0.10);
+    transform: translateY(-2px);
 }
 
 div[data-testid="stMetricLabel"],
 div[data-testid="stMetricLabel"] p {
-    color: #FFFFFF !important;
+    color: #6E6E6E !important;
     opacity: 1 !important;
     font-weight: 600 !important;
 }
 
 div[data-testid="stMetricValue"] {
-    color: #1DB954 !important;
-    font-weight: 700 !important;
+    color: #1A1A1A !important;
+    font-weight: 800 !important;
 }
 
 .spotify-card {
-    background-color: #181818;
-    border-radius: 12px;
+    background-color: #FFFFFF;
+    border-radius: 20px;
     padding: 20px;
-    border: 1px solid #282828;
+    border: 1px solid #F0E7D2;
+    box-shadow: 0 6px 18px rgba(26, 26, 26, 0.06);
     margin-bottom: 16px;
 }
 
 div[data-testid="stVerticalBlockBorderWrapper"] {
-    background-color: #181818;
-    border-radius: 12px !important;
-    border: 1px solid #282828 !important;
+    background-color: #FFFFFF;
+    border-radius: 20px !important;
+    border: 1px solid #F0E7D2 !important;
+    box-shadow: 0 6px 18px rgba(26, 26, 26, 0.05);
 }
 
-/* ---------- Buttons ---------- */
+/* ---------- Buttons — solid black pill, like the Crextio nav ---------- */
 .stButton > button {
-    background-color: #1DB954;
-    color: #000000;
+    background-color: #1A1A1A;
+    color: #FFFFFF;
     border: none;
     border-radius: 500px; /* pill shape */
     padding: 10px 32px;
@@ -128,69 +133,78 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 }
 
 .stButton > button:hover {
-    background-color: #1ED760;
+    background-color: #333333;
     transform: scale(1.03);
-    color: #000000;
+    color: #F2C94C;
 }
 
 .stButton > button:active {
-    background-color: #169c46;
+    background-color: #000000;
     transform: scale(0.98);
 }
 
-/* ---------- Tabs ---------- */
+/* ---------- Tabs — pill-style like the top nav ---------- */
 .stTabs [data-baseweb="tab-list"] {
-    gap: 24px;
-    border-bottom: 1px solid #282828;
+    gap: 8px;
+    border-bottom: none;
+    background-color: #FFFFFF;
+    padding: 6px;
+    border-radius: 500px;
+    border: 1px solid #F0E7D2;
+    width: fit-content;
 }
 
 .stTabs [data-baseweb="tab"] {
-    color: #B3B3B3;
+    color: #6E6E6E;
     font-weight: 600;
+    border-radius: 500px;
+    padding: 6px 18px;
 }
 
 .stTabs [aria-selected="true"] {
     color: #FFFFFF !important;
-    border-bottom: 2px solid #1DB954 !important;
+    background-color: #1A1A1A !important;
+    border-bottom: none !important;
 }
 
 /* ---------- Dataframes / tables ---------- */
 div[data-testid="stDataFrame"] {
-    background-color: #181818;
-    border-radius: 8px;
+    background-color: #FFFFFF;
+    border-radius: 14px;
+    border: 1px solid #F0E7D2;
 }
 
 /* ---------- Selectbox / inputs ---------- */
 .stSelectbox > div > div,
 .stTextInput > div > div,
 .stMultiSelect > div > div {
-    background-color: #181818;
-    border: 1px solid #282828;
-    color: #FFFFFF;
-    border-radius: 6px;
+    background-color: #FFFFFF;
+    border: 1px solid #E7DCC0;
+    color: #1A1A1A;
+    border-radius: 12px;
 }
 
 /* ---------- Contrast fixes: captions, widget labels, markdown text ---------- */
 [data-testid="stCaptionContainer"],
 [data-testid="stCaptionContainer"] p {
-    color: #B3B3B3 !important;
+    color: #7A7A7A !important;
     opacity: 1 !important;
 }
 
 [data-testid="stWidgetLabel"],
 [data-testid="stWidgetLabel"] p,
 [data-testid="stWidgetLabel"] label {
-    color: #FFFFFF !important;
+    color: #1A1A1A !important;
     opacity: 1 !important;
-    font-weight: 500 !important;
+    font-weight: 600 !important;
 }
 
 .stMarkdown p, .stMarkdown li, .stMarkdown span {
-    color: #E5E5E5;
+    color: #2E2E2E;
 }
 
 .stTabs [data-baseweb="tab"] p {
-    color: #B3B3B3 !important;
+    color: #6E6E6E !important;
     opacity: 1 !important;
     font-weight: 600 !important;
 }
@@ -199,36 +213,37 @@ div[data-testid="stDataFrame"] {
     color: #FFFFFF !important;
 }
 
-/* ---------- Number inputs (light boxes by default — fix to match theme) ---------- */
+/* ---------- Number inputs ---------- */
 .stNumberInput input,
 .stNumberInput > div > div {
-    background-color: #181818 !important;
-    color: #FFFFFF !important;
-    border: 1px solid #282828 !important;
+    background-color: #FFFFFF !important;
+    color: #1A1A1A !important;
+    border: 1px solid #E7DCC0 !important;
+    border-radius: 12px !important;
 }
 
-/* ---------- Sliders — Spotify green instead of default red ---------- */
+/* ---------- Sliders — warm gold fill ---------- */
 div[data-testid="stSlider"] [role="slider"] {
-    background-color: #1DB954 !important;
-    border-color: #1DB954 !important;
-    box-shadow: 0 0 0 4px rgba(29, 185, 84, 0.2) !important;
+    background-color: #E8B93A !important;
+    border-color: #E8B93A !important;
+    box-shadow: 0 0 0 4px rgba(232, 185, 58, 0.25) !important;
 }
 div[data-testid="stSlider"] div[data-baseweb="slider"] > div > div {
-    background-color: #1DB954 !important;
+    background-color: #E8B93A !important;
 }
 div[data-testid="stSlider"] div[data-baseweb="slider"] > div:first-child {
-    background-color: #404040 !important;
+    background-color: #EAE0C7 !important;
 }
 
 /* ---------- Checkbox accent ---------- */
 .stCheckbox [data-baseweb="checkbox"] svg {
-    fill: #1DB954 !important;
+    fill: #E8B93A !important;
 }
 
 /* ---------- Download button (separate testid from regular button) ---------- */
 .stDownloadButton > button {
-    background-color: #1DB954;
-    color: #000000;
+    background-color: #1A1A1A;
+    color: #FFFFFF;
     border: none;
     border-radius: 500px;
     padding: 10px 32px;
@@ -238,14 +253,15 @@ div[data-testid="stSlider"] div[data-baseweb="slider"] > div:first-child {
     font-size: 0.8rem;
 }
 .stDownloadButton > button:hover {
-    background-color: #1ED760;
+    background-color: #333333;
+    color: #F2C94C;
 }
 
 /* ---------- Alert boxes (success/warning/error) ---------- */
 div[data-testid="stAlert"] {
-    background-color: #181818;
-    border-radius: 8px;
-    border: 1px solid #282828;
+    background-color: #FFFFFF;
+    border-radius: 14px;
+    border: 1px solid #F0E7D2;
 }
 
 /* ---------- Scrollbar ---------- */
@@ -253,14 +269,14 @@ div[data-testid="stAlert"] {
     width: 8px;
 }
 ::-webkit-scrollbar-track {
-    background: #121212;
+    background: #F5E9CE;
 }
 ::-webkit-scrollbar-thumb {
-    background: #535353;
+    background: #D8C79A;
     border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #1DB954;
+    background: #E8B93A;
 }
 
 </style>
@@ -307,45 +323,45 @@ TIER_COLORS = {
     "Hit": "#F2994A", "Viral Hit": "#EB5757",
 }
 
-GREEN_SCALE = ["#121212", "#0d4a24", "#12692f", "#1DB954", "#4CD97B"]
+GOLD_SCALE = ["#FFFFFF", "#FCEFD0", "#F2C94C", "#E8B93A", "#8A6A15"]
 
-PLOTLY_DARK_LAYOUT = dict(
-    paper_bgcolor="#121212",
-    plot_bgcolor="#121212",
-    font=dict(color="#FFFFFF", family="Helvetica, Arial, sans-serif"),
-    title_font=dict(color="#FFFFFF", size=16),
-    legend=dict(bgcolor="rgba(0,0,0,0)", font=dict(color="#FFFFFF")),
-    xaxis=dict(gridcolor="#282828", zerolinecolor="#282828", color="#B3B3B3"),
-    yaxis=dict(gridcolor="#282828", zerolinecolor="#282828", color="#B3B3B3"),
+PLOTLY_LIGHT_LAYOUT = dict(
+    paper_bgcolor="#FFFFFF",
+    plot_bgcolor="#FFFFFF",
+    font=dict(color="#1A1A1A", family="Helvetica, Arial, sans-serif"),
+    title_font=dict(color="#1A1A1A", size=16),
+    legend=dict(bgcolor="rgba(0,0,0,0)", font=dict(color="#1A1A1A")),
+    xaxis=dict(gridcolor="#F0E7D2", zerolinecolor="#F0E7D2", color="#6E6E6E"),
+    yaxis=dict(gridcolor="#F0E7D2", zerolinecolor="#F0E7D2", color="#6E6E6E"),
     margin=dict(t=50, l=10, r=10, b=10),
 )
 
 
 def themed(fig):
-    """Apply consistent Spotify-dark styling to any Plotly figure."""
-    fig.update_layout(**PLOTLY_DARK_LAYOUT)
+    """Apply consistent cream/gold styling to any Plotly figure."""
+    fig.update_layout(**PLOTLY_LIGHT_LAYOUT)
     return fig
 
 
 def main():
     st.markdown("""
     <div style="display:flex;align-items:center;gap:16px;padding:4px 0 6px 0;">
-        <div style="width:52px;height:52px;border-radius:50%;background:#1DB954;
+        <div style="width:52px;height:52px;border-radius:50%;background:#1A1A1A;
                     display:flex;align-items:center;justify-content:center;flex-shrink:0;
-                    box-shadow:0 4px 16px rgba(29,185,84,0.35);">
+                    box-shadow:0 4px 16px rgba(26,26,26,0.20);">
             <span style="font-size:26px;">🎵</span>
         </div>
         <div>
-            <div style="font-size:2rem;font-weight:800;color:#FFFFFF;line-height:1.15;">
+            <div style="font-size:2rem;font-weight:800;color:#1A1A1A;line-height:1.15;">
                 Spotify Track Performance Intelligence
             </div>
-            <div style="font-size:0.95rem;color:#B3B3B3;margin-top:2px;">
+            <div style="font-size:0.95rem;color:#7A7A7A;margin-top:2px;">
                 Track popularity scoring, success-tier classification, and genre trend
                 forecasting for A&amp;R, marketing, and catalog strategy.
             </div>
         </div>
     </div>
-    <hr style="border:none;border-top:1px solid #282828;margin:16px 0 6px 0;">
+    <hr style="border:none;border-top:1px solid #EEE3C8;margin:16px 0 6px 0;">
     """, unsafe_allow_html=True)
 
     if not models_are_available(CONFIG):
@@ -385,6 +401,35 @@ def main():
         st.stop()
 
     # -------------------------------------------------------------------
+    # Welcome banner + quick-stat pills
+    # -------------------------------------------------------------------
+    genre_coverage = len(selected_genres) / len(all_genres) if all_genres else 0
+    artist_coverage = filtered["artist_id"].nunique() / catalog["artist_id"].nunique()
+    hit_rate_pct = filtered["popularity_tier"].isin(["Hit", "Viral Hit"]).mean()
+
+    st.markdown(f"""
+    <div style="margin:4px 0 20px 0;">
+        <div style="font-size:1.5rem;font-weight:700;color:#1A1A1A;margin-bottom:12px;">
+            Welcome back — here's how the catalog looks
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+            <span style="background:#1A1A1A;color:#FFFFFF;padding:8px 18px;border-radius:500px;
+                         font-size:0.85rem;font-weight:600;">
+                Genre Coverage {genre_coverage:.0%}
+            </span>
+            <span style="background:#F2C94C;color:#1A1A1A;padding:8px 18px;border-radius:500px;
+                         font-size:0.85rem;font-weight:700;">
+                Hit + Viral Rate {hit_rate_pct:.0%}
+            </span>
+            <span style="background:#FFFFFF;color:#1A1A1A;border:1px solid #E7DCC0;padding:8px 18px;
+                         border-radius:500px;font-size:0.85rem;font-weight:600;">
+                Artist Coverage {artist_coverage:.0%}
+            </span>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # -------------------------------------------------------------------
     # Executive Summary + KPI cards
     # -------------------------------------------------------------------
     st.subheader("Executive Summary")
@@ -407,7 +452,7 @@ def main():
     kpi_cols[4].metric("Artists Represented", f"{filtered['artist_id'].nunique()}")
 
     st.markdown("##### Catalog Composition")
-    ec1, ec2 = st.columns(2)
+    ec1, ec2, ec3 = st.columns(3)
     with ec1:
         tier_counts = (
             filtered["popularity_tier"].value_counts()
@@ -428,6 +473,22 @@ def main():
         )
         fig_hist.update_layout(bargap=0.05)
         st.plotly_chart(themed(fig_hist), use_container_width=True)
+    with ec3:
+        gauge_max = max(20, hit_rate_pct * 100 * 2)
+        fig_gauge = go.Figure(go.Indicator(
+            mode="gauge+number",
+            value=hit_rate_pct * 100,
+            number={"suffix": "%", "font": {"color": "#1A1A1A", "size": 34}},
+            title={"text": "Hit + Viral Hit Rate", "font": {"color": "#1A1A1A", "size": 14}},
+            gauge={
+                "axis": {"range": [0, gauge_max], "tickcolor": "#9A9A9A"},
+                "bar": {"color": "#E8B93A", "thickness": 0.3},
+                "bgcolor": "#FFFFFF",
+                "borderwidth": 0,
+                "steps": [{"range": [0, gauge_max], "color": "#F5E9CE"}],
+            },
+        ))
+        st.plotly_chart(themed(fig_gauge), use_container_width=True)
 
     st.divider()
 
@@ -535,19 +596,19 @@ def main():
                 r=track_values + track_values[:1],
                 theta=theta_labels + theta_labels[:1],
                 fill="toself", name="This Track",
-                line_color="#1DB954", fillcolor="rgba(29,185,84,0.35)",
+                line_color="#E8B93A", fillcolor="rgba(232,185,58,0.35)",
             ))
             fig_radar.add_trace(go.Scatterpolar(
                 r=genre_avg + genre_avg[:1],
                 theta=theta_labels + theta_labels[:1],
                 fill="toself", name=f"{genre.replace('_', ' ').title()} Avg",
-                line_color="#B3B3B3", fillcolor="rgba(179,179,179,0.15)",
+                line_color="#9A9A9A", fillcolor="rgba(154,154,154,0.15)",
             ))
             fig_radar.update_layout(
                 polar=dict(
-                    bgcolor="#121212",
-                    radialaxis=dict(visible=True, range=[0, 1], color="#B3B3B3", gridcolor="#282828"),
-                    angularaxis=dict(color="#FFFFFF"),
+                    bgcolor="#FFFFFF",
+                    radialaxis=dict(visible=True, range=[0, 1], color="#9A9A9A", gridcolor="#F0E7D2"),
+                    angularaxis=dict(color="#1A1A1A"),
                 ),
                 title="Audio Feature Profile vs. Genre Average",
                 showlegend=True,
@@ -581,7 +642,7 @@ def main():
         fig2 = go.Figure()
         fig2.add_trace(go.Bar(
             x=latest["genre"], y=latest["avg_popularity"], name=f"{latest_year} actual",
-            marker_color="#1DB954",
+            marker_color="#E8B93A",
         ))
         fig2.add_trace(go.Bar(
             x=latest["genre"], y=latest["forecast_next_year"], name=f"{latest_year + 1} forecast",
@@ -603,7 +664,7 @@ def main():
 
         fig3 = px.box(
             filtered, x="genre", y=selected_indicator,
-            color_discrete_sequence=["#1DB954"],
+            color_discrete_sequence=["#E8B93A"],
             title=f"{selected_indicator.title()} Distribution by Genre",
         )
         st.plotly_chart(themed(fig3), use_container_width=True)
@@ -630,7 +691,7 @@ def main():
             reg_importance_display["feature"] = reg_importance_display["feature"].apply(clean_feature_label)
             fig = px.bar(
                 reg_importance_display.head(12), x="importance", y="feature", orientation="h",
-                color_discrete_sequence=["#1DB954"],
+                color_discrete_sequence=["#E8B93A"],
             )
             fig.update_layout(yaxis={"categoryorder": "total ascending"})
             st.plotly_chart(themed(fig), use_container_width=True)
@@ -640,7 +701,7 @@ def main():
             clf_importance_display["feature"] = clf_importance_display["feature"].apply(clean_feature_label)
             fig = px.bar(
                 clf_importance_display.head(12), x="importance", y="feature", orientation="h",
-                color_discrete_sequence=["#1DB954"],
+                color_discrete_sequence=["#E8B93A"],
             )
             fig.update_layout(yaxis={"categoryorder": "total ascending"})
             st.plotly_chart(themed(fig), use_container_width=True)
@@ -652,7 +713,7 @@ def main():
         ]
         corr = filtered[audio_cols].corr().round(2)
         fig_heat = px.imshow(
-            corr, text_auto=True, color_continuous_scale=GREEN_SCALE,
+            corr, text_auto=True, color_continuous_scale=GOLD_SCALE,
             aspect="auto", title="Feature Correlation Matrix",
         )
         st.plotly_chart(themed(fig_heat), use_container_width=True)
@@ -666,6 +727,34 @@ def main():
     # TAB 4: Catalog table + download predictions
     # -------------------------------------------------------------------
     with tab_catalog:
+        top5 = filtered.sort_values("popularity", ascending=False).head(5)
+        rows_html = ""
+        for _, row in top5.iterrows():
+            track_name = html.escape(str(row["track_name"]))
+            artist_name = html.escape(str(row["artist_artist_name"]))
+            genre_label = html.escape(str(row["genre"]).replace("_", " ").title())
+            rows_html += f"""
+            <div style="display:flex;justify-content:space-between;align-items:center;
+                        padding:10px 4px;border-bottom:1px solid #333333;">
+                <div>
+                    <div style="color:#FFFFFF;font-weight:600;font-size:0.9rem;">{track_name}</div>
+                    <div style="color:#9A9A9A;font-size:0.78rem;">{artist_name} · {genre_label}</div>
+                </div>
+                <div style="background:#E8B93A;color:#1A1A1A;font-weight:700;font-size:0.8rem;
+                            padding:4px 12px;border-radius:500px;flex-shrink:0;margin-left:12px;">
+                    {row['popularity']:.0f}
+                </div>
+            </div>
+            """
+        st.markdown(f"""
+        <div style="background:#1A1A1A;border-radius:20px;padding:20px 22px;margin:6px 0 22px 0;">
+            <div style="color:#FFFFFF;font-weight:700;font-size:1.05rem;margin-bottom:6px;">
+                🏆 Top Tracks Spotlight
+            </div>
+            {rows_html}
+        </div>
+        """, unsafe_allow_html=True)
+
         st.markdown("##### Top Artists by Track Count (filtered)")
         top_artists = (
             filtered.groupby("artist_artist_name")["track_name"].count()
@@ -674,7 +763,7 @@ def main():
         top_artists.columns = ["artist", "track_count"]
         fig_artists = px.bar(
             top_artists, x="track_count", y="artist", orientation="h",
-            color_discrete_sequence=["#1DB954"], title="Top 10 Artists by Track Count",
+            color_discrete_sequence=["#E8B93A"], title="Top 10 Artists by Track Count",
         )
         fig_artists.update_layout(yaxis={"categoryorder": "total ascending"})
         st.plotly_chart(themed(fig_artists), use_container_width=True)

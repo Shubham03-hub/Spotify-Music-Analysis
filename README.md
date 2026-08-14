@@ -110,6 +110,8 @@ streamlit run dashboard/app.
 
 ## 📊 Dashboard Preview
 
+## 📊 Dashboard Preview
+
 ![KPI Summary](assets/kpi_summary.png)
 ![Popularity Score Distribution](assets/popularity.png)
 ```
