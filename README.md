@@ -6,10 +6,8 @@ An interactive, Spotify-themed web application built with **Streamlit** and **Py
 
 ## 📊 Dashboard Preview
 
-![KPI Summary](assets/spotify_kpi.png)
-![Popularity Score Distribution](assets/popularity_score_distribution.png)
-![Success Tier Distribution](assets/success_tier_contribution.png)
-![Track Scorer](assets/track_score.png)
+![Executive Summary & KPI Overview](assets/spotify_track_performance_a.png)
+![Track Scorer](assets/spotify_track_performance_b.png)
 
 > Screenshots are stored in the `assets/` folder. If you add or rename any images, update the paths above to match exactly (including file extension and case).
 
@@ -106,14 +104,7 @@ python -m src.training.mlflow_tracking
 ### 6. Run the Dashboard
 
 ```bash
-streamlit run dashboard/app.
-
-## 📊 Dashboard Preview
-
-## 📊 Dashboard Preview
-
-![KPI Summary](assets/kpi_summary.png)
-![Popularity Score Distribution](assets/popularity.png)
+streamlit run dashboard/app.py
 ```
 
 Streamlit will start a local server and open the dashboard automatically at:
