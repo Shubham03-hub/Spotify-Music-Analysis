@@ -143,3 +143,8 @@ Issues and pull requests are welcome. If you spot a bug or have an idea for a ne
 ## 📄 License
 
 This project is available for personal and educational use. Add a `LICENSE` file to this repository if you'd like to specify formal usage terms (e.g. MIT, Apache 2.0).
+
+## Author
+# Mr. Shubham Panchal 
+Data Analytics | Data Science | AI | Machine Learning | Business Intelligence
+LinkedIn: linkedin.com/in/shubham-panchal-a100282a8
